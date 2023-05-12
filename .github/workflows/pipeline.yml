@@ -31,6 +31,12 @@ jobs:
     # Install SFDX CLI
     - name: Install SFDX CLI
       run: npm install sfdx-cli --global
+    
+    #Install Delta
+    - name : Install sfdx git Delta
+      run : sfdx plugins:install sfdx-git-delta
+      run : sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output "."
+
 
     # Authorize SF Org
     - name: Authorize SF Org
@@ -46,8 +52,7 @@ jobs:
     
     # Run Validation of Deploy Source
     - name: Run Validation on Deploy Source
-      run: sfdx force:mdapi:deploy -l RunLocalTests -c -d ./toDeploy -u prod -w 10
+      run: sfdx force:mdapi:deploy -x package/package.xml -l RunLocalTests -c -d ./toDeploy -u prod -w 10
     
     # Deploy
-    - name : Deploy to SF Org
-      run: sfdx force:mdapi:deploy -l RunLocalTests -d ./toDeploy -u prod -w 10
+    
