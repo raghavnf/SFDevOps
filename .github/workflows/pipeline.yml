@@ -35,6 +35,8 @@ jobs:
     #Install Delta
     - name : Install sfdx git Delta
       run : sfdx plugins:install sfdx-git-delta
+    #Generate Delta
+    - name : Generate sfdx git Delta
       run : sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output "."
 
 
@@ -46,13 +48,11 @@ jobs:
         INSTANCE_URL: ${{ secrets.SALESFORCEPRODINSTANCEURL }}
       run: sfdx force:auth:jwt:grant --clientid $CLIENT_ID --jwtkeyfile ./buildfiles/server.key --username $USERNAME --instanceurl $INSTANCE_URL -a prod
 
-    # Convert to Deploy Source
-    - name: Convert to Deploy Source
-      run: sfdx force:source:convert -r ./force-app -d ./toDeploy
+    
     
     # Run Validation of Deploy Source
     - name: Run Validation on Deploy Source
-      run: sfdx force:mdapi:deploy -x package/package.xml -l RunLocalTests -c -d ./toDeploy -u prod -w 10
+      run: sfdx force:source:deploy -x package/package.xml -l RunLocalTests -c -d ./toDeploy -u prod -w 10
     
     # Deploy
     
