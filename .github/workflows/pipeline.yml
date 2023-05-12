@@ -34,10 +34,10 @@ jobs:
     
     #Install Delta
     - name : Install sfdx git Delta
-      run : sfdx plugins:install sfdx-git-delta
+      run : echo 'y' | sfdx plugins:install sfdx-git-delta
     #Generate Delta
     - name : Generate sfdx git Delta
-      run : echo 'y' | sfdx plugins:install -f sfdx-git-delta
+      run : sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output "."
 
 
     # Authorize SF Org
