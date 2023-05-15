@@ -55,7 +55,7 @@ jobs:
     
     # Run Validation of Deploy Source
     - name: Run Validation on Deploy Source
-      run: sf project deploy validate --manifest path/to/package.xml
+      run: sfdx foce:source:deploy --manifest path/to/package.xml -c -u prod -l RunLocalTests
       
 
     
