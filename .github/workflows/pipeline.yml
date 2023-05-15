@@ -40,7 +40,7 @@ jobs:
         sfdx plugins
     #Generate Delta
     - name : Generate sfdx git Delta
-      run : sfdx sgd:source:delta --to HEAD --from $(git merge-base HEAD origin/master) --output .
+      run : sfdx sgd:source:delta --to HEAD --from $(git merge-base HEAD origin/main) --output .
 
 
     # Authorize SF Org
