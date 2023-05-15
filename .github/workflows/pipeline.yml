@@ -30,8 +30,8 @@ jobs:
     
     # Install SFDX CLI
     - name: Install SFDX CLI
-      run: docker pull salesforce/salesforcedx:latest-rc-slim |
-            docker run -i salesforce/salesforcedx:latest-rc-slim
+      run: docker pull salesforce/salesforcedx |
+            docker run -i salesforce/salesforcedx
     
     #Install Delta
     - name : Install sfdx git Delta
