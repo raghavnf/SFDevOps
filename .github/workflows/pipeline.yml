@@ -28,9 +28,13 @@ jobs:
       with:
           node-version: '14.x'
     
-    # Install SFDX CLI
-    - name: Install SFDX CLI
-      run: npm install sfdx-cli --global
+    # Install Salesforce CLI
+    - name: Install Salesforce CLI
+      run: |
+        wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+        mkdir sfdx-cli
+        tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+        ./sfdx-cli/install
     
     #Install Delta
     - name : Install sfdx git Delta
