@@ -37,7 +37,7 @@ jobs:
       run : echo 'y' | sfdx plugins:install sfdx-git-delta
     #Generate Delta
     - name : Generate sfdx git Delta
-      run : sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output "."
+      run : sfdx sgd:source:delta --to HEAD --from HEAD^--output .
 
 
     # Authorize SF Org
