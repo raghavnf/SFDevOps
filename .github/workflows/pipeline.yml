@@ -55,7 +55,8 @@ jobs:
     
     # Run Validation of Deploy Source
     - name: Run Validation on Deploy Source
-      run: sfdx force:source:deploy -x package/package.xml -l RunLocalTests -c -u $USERNAME --target-org $INSTANCE_URL
+      run: sf project deploy start --manifest path/to/package.xml
+
     
     # Deploy
     
