@@ -1,5 +1,6 @@
 /**
- * An apex page controller that exposes the change password functionality
+ * An apex page controller that exposes the change password functionality.
+* This is a test class
  */
 @IsTest public with sharing class ChangePasswordControllerTest {
    	@IsTest(SeeAllData=true) public static void testChangePasswordController() {
