@@ -9,4 +9,5 @@ public with sharing class CommunitiesLandingController_Custom {
     }
     
     public CommunitiesLandingController_Custom() {}
-}
+    public static void test1(){}
+    }
